@@ -11,7 +11,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         label="Title"
         value={course.title}
         onChange={onChange}
-        error={errors.title}
+        error={errors && errors.title}
       />
 
       <SelectInput
@@ -21,7 +21,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         defaultOption="Select Author"
         options={allAuthors}
         onChange={onChange}
-        error={errors.authorId}
+        error={errors && errors.authorId}
       />
 
       <TextInput
@@ -29,7 +29,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         label="Category"
         value={course.category}
         onChange={onChange}
-        error={errors.category}
+        error={errors && errors.category}
       />
 
       <TextInput
@@ -37,7 +37,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         label="Length"
         value={course.length}
         onChange={onChange}
-        error={errors.length}
+        error={errors && errors.length}
       />
 
       <input
@@ -47,8 +47,6 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
         className="btn btn-primary"
         onClick={onSave}
       />
-
-
     </form>
   )
 }
