@@ -1,13 +1,5 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import rootReducer from '../reducers/index'
-import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
-import thunk from 'redux-thunk'
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-export default function configureStore (initiallState) {
-  return createStore(
-    rootReducer,
-    initiallState,
-    composeEnhancers(applyMiddleware(thunk, reduxImmutableStateInvariant()))
-  )
+if(process.env.NODE_ENV === 'production'){
+  module.export = require('./configureStore.prod')
+}else{
+  module.export = require('./configureStore.dev')
 }
